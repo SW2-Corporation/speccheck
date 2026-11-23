@@ -1,0 +1,28 @@
+{
+  "name": "speccheck",
+  "version": "0.0.0",
+  "private": true,
+  "description": "SpecCheck: estensione di OpenCode che controlla la coincidenza tra casi d'uso e documenti di OpenSpec",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=26 <27"
+  },
+  "scripts": {
+    "opencode": "opencode --standalone",
+    "openspec": "openspec",
+    "tipi": "tsc --noEmit",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "verifica": "npm run tipi && npm test"
+  },
+  "devDependencies": {
+    "@fission-ai/openspec": "2.1.1",
+    "@opencode/cli": "2.3.2",
+    "@opencode/plugin": "2.3.2",
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2"
+  },
+  "allowScripts": {
+    "@opencode/cli@2.3.2": true
+  }
+}

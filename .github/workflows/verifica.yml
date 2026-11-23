@@ -1,0 +1,31 @@
+name: Verifica
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "26"
+          cache: npm
+
+      # allowScripts in package.json permette il postinstall di @opencode/cli, che copia il binario
+      - name: Installazione
+        run: npm ci
+
+      - name: Versione di OpenCode
+        run: |
+          atteso="opencode v$(node -p "require('./package.json').devDependencies['@opencode/cli']")"
+          trovato="$(node_modules/.bin/opencode --version)"
+          echo "atteso: $atteso, trovato: $trovato"
+          test "$trovato" = "$atteso"
+
+      - name: Tipi e test
+        run: npm run verifica
