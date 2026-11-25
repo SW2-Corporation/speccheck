@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+actor Studente
+actor Utente
+actor "Servizio di posta dell'ateneo" as ServizioPosta
+rectangle "Aule studio" {
+  usecase UC1 as "UC1 Prenotare un posto
+..punti di estensione..
+nessun posto libero (passo 5a)"
+  usecase UC2 as "UC2 Autenticarsi"
+  usecase UC3 as "UC3 Iscriversi alla lista d'attesa"
+}
+Studente -- UC1
+UC1 -- ServizioPosta
+Utente -- UC2
+Utente <|-- Studente
+UC1 .> UC2 : <<include>>
+UC3 .> UC1 : <<extend>>
+note on link
+  Condizione: lo Studente chiede di entrare
+  nella lista d'attesa della fascia oraria
+  Punto di estensione: nessun posto libero
+end note
+@enduml

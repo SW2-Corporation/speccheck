@@ -1,0 +1,18 @@
+usecase-beta
+direction LR
+actor Studente
+actor Utente
+actor ServizioPosta("Servizio di posta dell'ateneo")
+systemBoundary "Aule studio"
+  UC1("UC1 Prenotare un posto")
+  UC2("UC2 Autenticarsi")
+  UC3("UC3 Iscriversi alla lista d'attesa")
+end
+Studente --|> Utente
+Studente -- UC1
+UC1 -- ServizioPosta
+Utente -- UC2
+UC1 ..> : include UC2
+UC3 ..> : extend UC1
+note for UC3 "Condizione: lo Studente chiede di entrare nella lista d'attesa della fascia oraria"
+note for UC1 "Punto di estensione: nessun posto libero (passo 5a)"
