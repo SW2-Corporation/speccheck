@@ -1,0 +1,8 @@
+Il testo che segue è il sorgente di un diagramma dei casi d'uso UML in formato {FORMATO}.
+Elenca solo ciò che il diagramma contiene, senza aggiungere né dedurre altro:
+1. gli attori;
+2. i casi d'uso, con identificativo e titolo;
+3. il confine del sistema, con il suo nome e i casi d'uso che contiene;
+4. le relazioni, una per riga, nella forma «origine -> destinazione: tipo», dove il tipo è associazione, inclusione, estensione o generalizzazione;
+5. i punti di estensione e le condizioni delle estensioni.
+Rispondi in italiano, con un elenco numerato per ciascuna delle cinque voci.
